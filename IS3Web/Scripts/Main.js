@@ -35,4 +35,22 @@ $(document).on("pageinit", function (event) {
             drawChart();
         }
     });
+	$("input[type='radio']").bind("change", function(event,ui){
+		switch(chartChoice) {
+			case($(this).attr('value')== 'choice-1'): 
+				chart = chartEnum.LINE;
+				break;
+			case($(this).attr('value')== 'choice-2'): 
+				chart = chartEnum.BAR;
+				break;
+			case($(this).attr('value')== 'choice-3'): 
+				chart = chartEnum.SCATTER;
+				break;
+			case($(this).attr('value')== 'choice-4'):
+				chart = chartEnum.GEO;
+				break;
+		}
+		chartChoice = chartEnum.SCATTER;
+		drawChart();
+	});
 });
