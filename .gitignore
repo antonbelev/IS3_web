@@ -1,4 +1,4 @@
-*.tweets
+*.csv
 *.gz
 *.json
 .metadata
