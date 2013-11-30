@@ -6,9 +6,10 @@
 	  chartEnum = {
 		LINE : 0,
 		BAR : 1,
-		SCATTER : 2
+		SCATTER : 2,
+		GEO : 3
 	  };
-	  var chartChoice = chartEnum.BAR;
+	  var chartChoice = chartEnum.LINE;
 	  var unselectedCountries = [];
       // instantiates the pie chart, passes in the data and
       // draws it.
@@ -34,13 +35,16 @@
         var chart;
 		switch(chartChoice) {
 			case(chartEnum.LINE): 
-				var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+				chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 				break;
 			case(chartEnum.BAR): 
-				var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+				chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 				break;
 			case(chartEnum.SCATTER): 
-				var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+				chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+				break;
+			case(chartEnum.GEO):
+				chart = new google.visualization.GeoMap(document.getElementById('chart_div'));
 				break;
 		}
 		chart.draw(data, options);

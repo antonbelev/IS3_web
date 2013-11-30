@@ -30,6 +30,9 @@
                 <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" />
                 <label for="radio-choice-3">
                     Scatter Plot</label>
+				<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
+                <label for="radio-choice-4">
+                    Geo Plot</label>
             </fieldset>
         </div>
         <div class="clear">
