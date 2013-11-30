@@ -36,21 +36,21 @@ $(document).on("pageinit", function (event) {
         }
     });
 	$("input[type='radio']").bind("change", function(event,ui){
-		switch(chartChoice) {
-			case($(this).attr('value')== 'choice-1'): 
-				chart = chartEnum.LINE;
+		switch($(this).attr('value')) {
+			case('choice-1'): 
+				chartChoice = chartEnum.LINE;
 				break;
-			case($(this).attr('value')== 'choice-2'): 
-				chart = chartEnum.BAR;
+			case('choice-2'): 
+				chartChoice = chartEnum.BAR;
 				break;
-			case($(this).attr('value')== 'choice-3'): 
-				chart = chartEnum.SCATTER;
+			case('choice-3'): 
+				chartChoice = chartEnum.SCATTER;
 				break;
-			case($(this).attr('value')== 'choice-4'):
-				chart = chartEnum.GEO;
+			case('choice-4'):
+				console.log("i am in geo");
+				chartChoice = chartEnum.GEO;
 				break;
 		}
-		chartChoice = chartEnum.SCATTER;
 		drawChart();
 	});
 });
