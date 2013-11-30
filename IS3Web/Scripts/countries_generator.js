@@ -5,7 +5,7 @@
     var jqmBottom2 = "</span><span class=\"ui-icon ui-icon-checkbox-off ui-icon-shadow\"> </span></span></label></div></li>";
     var uiSelector = $('.ulCountries');
     for (var i = 0; i < json.length; i++) {
-        html += li + json[i]["CountryID"] + "\" type=\"checkbox\" checked=\"checked\" data-mini=\"true\" name=\"" + json[i]["CountryID"]
+        html += li + json[i]["CountryID"] + "\" type=\"checkbox\" checked=\"checked\" class=\"chckCountry\" data-mini=\"true\" name=\"" + json[i]["CountryID"]
             + "\">"
             + "<label class=\"chck ui-btn ui-btn-corner-all ui-mini ui-btn-icon-left ui-checkbox-on ui-btn-up-c\" for=\""
             + json[i]["CountryID"] + "\""

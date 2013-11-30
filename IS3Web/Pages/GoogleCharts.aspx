@@ -12,6 +12,7 @@
     <script src="../Scripts/Data.js" type="text/javascript"></script>
     <script src="../Scripts/google_charts_pie.js" type="text/javascript"></script>
     <script src="../Scripts/countries_generator.js" type="text/javascript"></script>
+    <script src="../Scripts/column_generator.js" type="text/javascript"></script>
     <script src="../Scripts/Main.js" type="text/javascript"></script>
 </head>
 <body>
@@ -40,6 +41,9 @@
             <h3>
                 Columns</h3>
             <div class="columnsContent">
+                <ul data-role="listview" data-filter="true" class="ulColumns" data-mini="true">
+
+                </ul>
             </div>
         </div>
         <div class="clear">
@@ -49,22 +53,7 @@
                 Countries</h3>
             <div class="countriesContent">
                 <ul data-role="listview" data-filter="true" class="ulCountries" data-mini="true">
-                    <%--<li>
-                        <input type="checkbox" name="Australia" data-mini="true" id="checkbox1" />
-                        <label for="checkbox1" class="chck">
-                            Australia</label></li>
-                    <li>
-                        <input type="checkbox" name="Brazil" data-mini="true" id="checkbox2" />
-                        <label for="checkbox2" class="chck">
-                            Brazil</label></li>
-                    <li>
-                        <input type="checkbox" name="Bulgaria" data-mini="true" id="checkbox3" />
-                        <label for="checkbox3" class="chck">
-                            Bulgaria</label></li>
-                    <li>
-                        <input type="checkbox" name="United Kingdom" data-mini="true" id="checkbox4" />
-                        <label for="checkbox4" class="chck">
-                            United Kingdom</label></li>--%>
+
                 </ul>
             </div>
         </div>

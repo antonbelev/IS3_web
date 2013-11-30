@@ -8,8 +8,9 @@
 		BAR : 1,
 		SCATTER : 2
 	  };
-	  var chartChoice = chartEnum.BAR;
+	  var chartChoice = chartEnum.LINE;
 	  var unselectedCountries = [];
+      var selectedColumns = [];
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
@@ -17,11 +18,21 @@
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Country');
-        data.addColumn('number', '#Gold');
+        for (var i = 0; i < selectedColumns.length; i++) {
+            data.addColumn('number', selectedColumns[i]);
+		}
+
 		//data.addColumn('number', '#Silver');
 		for (var i = 0; i < json.length; i++) {
-			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0) 
-			data.addRow([json[i]["Country"], parseInt(json[i]["Gold"]) + parseInt(json[i]["Silver"]) + parseInt(json[i]["Bronze"])]);
+			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0){
+                var content = [];
+                content.push(json[i]["Country"]);
+                for (var j = 0; j < selectedColumns.length; j++) {
+                     content.push(parseFloat(json[i][selectedColumns[j]]));
+		        } 
+                console.log(content);           
+            } 
+			data.addRow(content);
 		}
 
         // Set chart options

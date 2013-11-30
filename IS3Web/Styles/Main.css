@@ -42,15 +42,16 @@
     text-align: center;
 }
 
-.columnsContent
+.ulColumns
 {
+    height: 350px;
     overflow-y: scroll;  
     overflow-x: hidden;
     /*height: 170px;*/
 }
 .ulCountries
 {
-    height: 250px;
+    height: 350px;
     overflow-y:scroll;
     overflow-x: hidden;
 }
