@@ -1,0 +1,55 @@
+﻿body 
+{
+    background-color: Gray;
+}
+
+.divChart
+{
+    float: left;
+    width: 59.3%;
+    margin: 3px;
+    padding: 3px;
+    border-color: #C8C8E6;
+    border-width: 2.5px;
+    border-style: solid;
+    border-radius: 12px;
+}
+
+.divMenu
+{
+    float: right;
+    width: 38.3%;
+    margin: 3px;
+    padding: 3px;
+    border-color: #C8C8E6;
+    border-width: 2.5px;
+    border-style: solid;
+    height: 100%;
+    border-radius: 12px;
+}
+.clear
+{
+    clear: both !important;
+}
+.menuCollapse
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.columnsContent
+{
+    /*height: 170px;*/
+}
+.countriesContent
+{
+    /*height: 170px;*/
+}
+li.ui-li{
+    padding: 0.01em 10px !important;
+}
