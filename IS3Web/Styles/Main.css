@@ -6,7 +6,7 @@
 .divChart
 {
     float: left;
-    width: 58.6%;
+    width: 58.7%;
     margin: 3px;
     padding: 3px;
     border-color: #C8C8E6;
@@ -18,7 +18,7 @@
 .divMenu
 {
     float: right;
-    width: 37.8%;
+    width: 38%;
     margin: 3px;
     padding: 3px;
     border-color: #C8C8E6;
@@ -44,11 +44,15 @@
 
 .columnsContent
 {
+    overflow-y: scroll;  
+    overflow-x: hidden;
     /*height: 170px;*/
 }
-.countriesContent
+.ulCountries
 {
-    /*height: 170px;*/
+    height: 250px;
+    overflow-y:scroll;
+    overflow-x: hidden;
 }
 li.ui-li{
     padding: 0.01em 10px !important;

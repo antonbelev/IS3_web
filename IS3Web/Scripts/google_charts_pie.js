@@ -9,7 +9,7 @@
 		SCATTER : 2
 	  };
 	  var chartChoice = chartEnum.BAR;
-	  var list = [];
+	  var unselectedCountries = [];
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
@@ -20,7 +20,7 @@
         data.addColumn('number', '#Gold');
 		//data.addColumn('number', '#Silver');
 		for (var i = 0; i < json.length; i++) {
-			if (list.indexOf(json[i]["CountryID"]) < 0) 
+			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0) 
 			data.addRow([json[i]["Country"], parseInt(json[i]["Gold"]) + parseInt(json[i]["Silver"]) + parseInt(json[i]["Bronze"])]);
 		}
 

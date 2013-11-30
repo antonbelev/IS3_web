@@ -48,7 +48,7 @@
             <h3>
                 Countries</h3>
             <div class="countriesContent">
-                <ul data-role="listview" data-filter="true" class="ulCountries">
+                <ul data-role="listview" data-filter="true" class="ulCountries" data-mini="true">
                     <%--<li>
                         <input type="checkbox" name="Australia" data-mini="true" id="checkbox1" />
                         <label for="checkbox1" class="chck">
