@@ -41,7 +41,7 @@
         </div>
         <div class="clear">
         </div>
-        <div data-role="collapsible" class="menuCollapse" data-theme="b">
+        <div data-role="collapsible" class="menuCollapse clpsColumns" data-theme="b">
             <h3>
                 Columns</h3>
             <div class="columnsContent">
@@ -54,7 +54,7 @@
         </div>
         <div class="clear">
         </div>
-        <div data-role="collapsible" class="menuCollapse" data-theme="b">
+        <div data-role="collapsible" class="menuCollapse clpsCountries" data-theme="b">
             <h3>
                 Countries</h3>
             <div class="countriesContent">
