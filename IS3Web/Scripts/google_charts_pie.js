@@ -33,7 +33,8 @@
         for (var i = 0; i < selectedColumns.length; i++) {
             data.addColumn('number', selectedColumns[i]);
 		}
-
+		
+		var extremeValues = getMinMaxForAttributes(selectedColumns);
 		//data.addColumn('number', '#Silver');
 		for (var i = 0; i < json.length; i++) {
 			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0){
@@ -42,7 +43,13 @@
                     content.push(json[i]["Country"]);
                 }
                 for (var j = 0; j < selectedColumns.length; j++) {
-                     content.push(parseFloat(json[i][selectedColumns[j]]));
+					var min = extremeValues[j][0];
+					var max = extremeValues[j][1];
+					var currValue = parseFloat(json[i][selectedColumns[j]]);
+					if (max > 100)
+						content.push( (currValue - min) * 100.0 / (max - min));
+					else
+						content.push(currValue);
 		        }           
             } 
 			data.addRow(content);
@@ -75,3 +82,30 @@
 		}
 		chart.draw(data, options);
       }
+	  
+	  function getMinMaxForAttributes(attributes) {
+		var result = [];
+		for (var i = 0; i < attributes.length; i++) {
+			var currMinMax = [];
+			var min = Infinity;
+			var max = -Infinity;
+			for (var j = 0; j < json.length; j++) {
+				var currNumber = parseFloat(json[j][attributes[i]]);
+				if (currNumber > max)
+					max = currNumber;
+				if (currNumber < min)
+					min = currNumber;
+			}
+			currMinMax.push(min);
+			currMinMax.push(max);
+			result.push(currMinMax);
+		}
+		return result;
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
