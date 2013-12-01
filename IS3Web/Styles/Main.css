@@ -82,3 +82,7 @@
 li.ui-li{
     padding: 0.01em 10px !important;
 }
+
+.chartTypes .ui-controlgroup-controls {
+	width: 100% !important;
+}

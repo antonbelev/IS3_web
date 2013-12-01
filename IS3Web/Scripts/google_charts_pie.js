@@ -59,8 +59,11 @@
 
         // Set chart options
         var options = {'title':'How Much Pizza I Ate Last Night',
-            'height': 500
-		};
+            'height': 500,//$( document ).innerHeight() - 50,
+            'width': '100%',
+            hAxis: {textPosition:'none', viewWindow: {min:0, max:200}},
+            animation: {duration: 1000, easing: 'inAndOut'},
+        };
 
         // Instantiate and draw our chart, passing in some options.
         var chart;

@@ -22,26 +22,43 @@
         </div>
     </div>
     <div id="divMenu" class="divMenu">
-        <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" data-type="horizontal" class="center" data-mini="true">
-                <legend>Chart type:</legend>
-                <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-                <label for="radio-choice-1">
-                    Line Chart</label>
-                <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
-                <label for="radio-choice-2">
-                    Bar Chart</label>
-                <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" />
-                <label for="radio-choice-3">
-                    Scatter Plot</label>
-				<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
-                <label for="radio-choice-4">
-                    Geo Plot</label>
-            </fieldset>
+		<table style="width:100%;"> 
+			<tr>
+				<td>Normalized:</td>
+				<td style="text-align:center;">Chart type:</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="clear">
+						<select name="flip-min" id="flip-min" data-role="slider" data-mini="true">
+							<option value="off">Off</option>
+							<option value="on">On</option>
+						</select>
+					</div>
+				</td>
+				<td style="float:right;">
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup" data-type="horizontal" class="center chartTypes" data-mini="true">
+							<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+							<label for="radio-choice-1">
+								Line Chart</label>
+							<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
+							<label for="radio-choice-2">
+								Bar Chart</label>
+							<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" />
+							<label for="radio-choice-3">
+								Scatter Plot</label>
+							<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
+							<label for="radio-choice-4">
+								Geo Plot</label>
+						</fieldset>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="clear">
         </div>
-        <div class="clear">
-        </div>
-        <div data-role="collapsible" class="menuCollapse" data-theme="b">
+        <div data-role="collapsible" class="menuCollapse clpsColumns" data-theme="b">
             <h3>
                 Columns</h3>
             <div class="columnsContent">
@@ -54,7 +71,7 @@
         </div>
         <div class="clear">
         </div>
-        <div data-role="collapsible" class="menuCollapse" data-theme="b">
+        <div data-role="collapsible" class="menuCollapse clpsCountries" data-theme="b">
             <h3>
                 Countries</h3>
             <div class="countriesContent">
