@@ -35,4 +35,22 @@ $(document).on("pageinit", function (event) {
             drawChart();
         }
     });
+	$("input[type='radio']").bind("change", function(event,ui){
+		switch($(this).attr('value')) {
+			case('choice-1'): 
+				chartChoice = chartEnum.LINE;
+				break;
+			case('choice-2'): 
+				chartChoice = chartEnum.BAR;
+				break;
+			case('choice-3'): 
+				chartChoice = chartEnum.SCATTER;
+				break;
+			case('choice-4'):
+				console.log("i am in geo");
+				chartChoice = chartEnum.GEO;
+				break;
+		}
+		drawChart();
+	});
 });
