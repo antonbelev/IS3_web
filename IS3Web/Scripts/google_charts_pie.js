@@ -50,18 +50,16 @@
 						content.push( (currValue - min) * 100.0 / (max - min));
 					else
 						content.push(currValue);
-		        }           
+		        }
+				data.addRow(content);
             } 
-			data.addRow(content);
+			
 		}
 		
 
         // Set chart options
         var options = {'title':'How Much Pizza I Ate Last Night',
-            'height': 500,//$( document ).innerHeight() - 50,
-            'width': '100%',
-			hAxis: {textPosition:'none', viewWindow: {min:0, max:200}},
-			animation: {duration: 1000, easing: 'inAndOut'},
+            'height': 500
 		};
 
         // Instantiate and draw our chart, passing in some options.
@@ -90,11 +88,13 @@
 			var min = Infinity;
 			var max = -Infinity;
 			for (var j = 0; j < json.length; j++) {
-				var currNumber = parseFloat(json[j][attributes[i]]);
-				if (currNumber > max)
-					max = currNumber;
-				if (currNumber < min)
-					min = currNumber;
+				if (unselectedCountries.indexOf(json[j]["CountryID"]) < 0) {
+					var currNumber = parseFloat(json[j][attributes[i]]);
+					if (currNumber > max)
+						max = currNumber;
+					if (currNumber < min)
+						min = currNumber;
+				}
 			}
 			currMinMax.push(min);
 			currMinMax.push(max);
