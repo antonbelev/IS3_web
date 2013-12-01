@@ -17,6 +17,9 @@
     <div id="divChart" class="divChart">
         <div id="chart_div" class="divInnderChar">
         </div>
+        <div id="chart_div_err" class="divInnderError">
+           <span class="error center">No content to display. Please, use the filters to the right.</span>
+        </div>
     </div>
     <div id="divMenu" class="divMenu">
         <div data-role="fieldcontain">

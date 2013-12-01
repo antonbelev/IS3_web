@@ -15,7 +15,15 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
-		
+		if (selectedColumns.length <= 0 || unselectedCountries >= json.length) {
+            $(".divInnderChar").hide();
+            $(".divInnderError").show().height($( document ).innerHeight() - 50);            
+            return;
+        }
+        else{
+            $(".divInnderChar").show();
+            $(".divInnderError").hide();
+        }
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Country');
@@ -38,6 +46,7 @@
 
         // Set chart options
         var options = {'title':'How Much Pizza I Ate Last Night',
+            'height':$( document ).innerHeight() - 50,
 			hAxis: {textPosition:'none', viewWindow: {min:0, max:200}},
 			animation: {duration: 1000, easing: 'inAndOut'},
 		};
