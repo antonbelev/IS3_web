@@ -90,4 +90,11 @@ $(document).on("pageinit", function (event) {
         }
         drawChart();
     });
+
+    $('.clpsColumns').bind('expand', function () {
+        $(".clpsCountries").trigger("collapse");
+    })
+    $('.clpsCountries').bind('expand', function () {
+        $(".clpsColumns").trigger("collapse");
+    })
 });
