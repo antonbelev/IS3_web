@@ -30,7 +30,7 @@
 			<tr>
 				<td>
 					<div class="clear">
-						<select name="flip-min" id="flip-min" data-role="slider" data-mini="true">
+						<select name="normSlider" id="normSlider" data-role="slider" class="normSlider" data-mini="true">
 							<option value="off">Off</option>
 							<option value="on">On</option>
 						</select>

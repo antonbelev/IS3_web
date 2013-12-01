@@ -97,4 +97,8 @@ $(document).on("pageinit", function (event) {
     $('.clpsCountries').bind('expand', function () {
         $(".clpsColumns").trigger("collapse");
     })
+
+    $( ".normSlider" ).bind( "change", function(event, ui) {
+        
+    });
 });
