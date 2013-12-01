@@ -15,7 +15,7 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
-		if (selectedColumns.length <= 0 || unselectedCountries >= json.length) {
+		if (selectedColumns.length <= 0) {
             $(".divInnderChar").hide();
             $(".divInnderError").show().height($( document ).innerHeight() - 50);            
             return;
