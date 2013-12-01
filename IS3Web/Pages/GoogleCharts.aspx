@@ -46,9 +46,11 @@
                 Columns</h3>
             <div class="columnsContent">
                 <ul data-role="listview" data-filter="true" class="ulColumns" data-mini="true">
-
                 </ul>
             </div>
+            <hr />
+            <input type="checkbox" name="selectAllColumns" id="selectAllColumns" class="selectAllColumns" />
+		    <label for="selectAllColumns">Select all</label>
         </div>
         <div class="clear">
         </div>
@@ -59,6 +61,10 @@
                 <ul data-role="listview" data-filter="true" class="ulCountries" data-mini="true">
                 </ul>
             </div>
+            <div class="clear"></div>
+            <hr />
+            <input type="checkbox" name="selectAllCountry" id="selectAllCountry" checked="checked" class="selectAllCountry" />
+		    <label for="selectAllCountry">Select all</label>
         </div>
         <div class="clear">
         </div>

@@ -34,23 +34,35 @@ $(document).on("pageinit", function (event) {
             }
             drawChart();
         }
+        else if ($(this).hasClass("selectAllCountry")) {
+            if ($(this).attr('checked')) {
+                ("input.chckCountry[type='checkbox']").each
+            } else {
+            }
+        }
+        else if ($(this).hasClass("selectAllColumns")) {
+            if ($(this).attr('checked')) {
+                
+            } else {
+            }
+        }
     });
-	$("input[type='radio']").bind("change", function(event,ui){
-		switch($(this).attr('value')) {
-			case('choice-1'): 
-				chartChoice = chartEnum.LINE;
-				break;
-			case('choice-2'): 
-				chartChoice = chartEnum.BAR;
-				break;
-			case('choice-3'): 
-				chartChoice = chartEnum.SCATTER;
-				break;
-			case('choice-4'):
-				console.log("i am in geo");
-				chartChoice = chartEnum.GEO;
-				break;
-		}
-		drawChart();
-	});
+    $("input[type='radio']").bind("change", function (event, ui) {
+        switch ($(this).attr('value')) {
+            case ('choice-1'):
+                chartChoice = chartEnum.LINE;
+                break;
+            case ('choice-2'):
+                chartChoice = chartEnum.BAR;
+                break;
+            case ('choice-3'):
+                chartChoice = chartEnum.SCATTER;
+                break;
+            case ('choice-4'):
+                console.log("i am in geo");
+                chartChoice = chartEnum.GEO;
+                break;
+        }
+        drawChart();
+    });
 });

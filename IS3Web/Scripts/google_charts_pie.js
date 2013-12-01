@@ -27,7 +27,9 @@
         }
         // Create the data table.
         var data = new google.visualization.DataTable();
-        if(chartChoice != chartEnum.SCATTER) {data.addColumn('string', 'Country');}
+        if(chartChoice != chartEnum.SCATTER) {
+            data.addColumn('string', 'Country');
+        }
         for (var i = 0; i < selectedColumns.length; i++) {
             data.addColumn('number', selectedColumns[i]);
 		}
@@ -36,11 +38,12 @@
 		for (var i = 0; i < json.length; i++) {
 			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0){
                 var content = [];
-				if(chartChoice != chartEnum.SCATTER) {content.push(json[i]["Country"]);}
+				if(chartChoice != chartEnum.SCATTER) {
+                    content.push(json[i]["Country"]);
+                }
                 for (var j = 0; j < selectedColumns.length; j++) {
                      content.push(parseFloat(json[i][selectedColumns[j]]));
-		        } 
-                console.log(content);           
+		        }           
             } 
 			data.addRow(content);
 		}
@@ -48,7 +51,8 @@
 
         // Set chart options
         var options = {'title':'How Much Pizza I Ate Last Night',
-            'height':$( document ).innerHeight() - 50,
+            'height': 500,//$( document ).innerHeight() - 50,
+            'width': '100%',
 			hAxis: {textPosition:'none', viewWindow: {min:0, max:200}},
 			animation: {duration: 1000, easing: 'inAndOut'},
 		};
