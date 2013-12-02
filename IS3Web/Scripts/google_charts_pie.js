@@ -13,6 +13,9 @@
 	  var chartChoice = chartEnum.LINE;
 	  var unselectedCountries = [];
       var selectedColumns = [];
+	  var isNormalized = false;
+	  var zoomFactor = 180;
+	  var minIndexToDisplay = 0;
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
@@ -46,7 +49,7 @@
 					var min = extremeValues[j][0];
 					var max = extremeValues[j][1];
 					var currValue = parseFloat(json[i][selectedColumns[j]]);
-					if (max > 100)
+					if (isNormalized)
 						content.push( (currValue - min) * 100.0 / (max - min));
 					else
 						content.push(currValue);
@@ -56,12 +59,12 @@
 			
 		}
 		
-
         // Set chart options
+		console.log(minIndexToDisplay + " : " + (zoomFactor + minIndexToDisplay));
         var options = {'title':'How Much Pizza I Ate Last Night',
             'height': 500,//$( document ).innerHeight() - 50,
             'width': '100%',
-            hAxis: {textPosition:'none', viewWindow: {min:0, max:200}},
+            hAxis: {textPosition:'none', viewWindow: {min:minIndexToDisplay, max:(parseInt(zoomFactor) + parseInt(minIndexToDisplay))}},
             animation: {duration: 1000, easing: 'inAndOut'},
         };
 

@@ -13,14 +13,26 @@
     <script src="../Scripts/column_generator.js" type="text/javascript"></script>
     <script src="../Scripts/Main.js" type="text/javascript"></script>
 </head>
-<body>
+<body>	
     <div id="divChart" class="divChart">
         <div id="chart_div" class="divInnderChar">
         </div>
         <div id="chart_div_err" class="divInnderError">
            <span class="error center">No content to display. Please, use the filters to the right.</span>
         </div>
+		
+		<div id="divZoom" class="divZoom" style="float:bottom; height:3%; width:100%">
+		<table> <tr>
+		<td style="width:7%;"><a href="#" class="buttonMoveLeft" id="buttonLeft" data-role="button"> < </a></td>
+		<td style="width:8%;"><td>
+		<td style="float:center;"><input type="range" name="zoomSlider" id="zoomSlider" class="zoomSlider" value="180" min="0" max="180" /></td>
+		<td style="width:7%;"><a href="#" class="buttonMoveRight" id="buttonRight" data-role="button"> > </a></td>
+		</tr>
+		</table>
+		</div>
     </div>
+	
+	
     <div id="divMenu" class="divMenu">
 		<table style="width:100%;"> 
 			<tr>

@@ -99,6 +99,25 @@ $(document).on("pageinit", function (event) {
     })
 
     $( ".normSlider" ).bind( "change", function(event, ui) {
-        
+        isNormalized = $( ".normSlider" ).val() == "on";
+		drawChart();
+    });
+	
+	$( ".zoomSlider" ).bind( "change", function(event, ui) {
+		//alert($( ".zoomSlider" ).val());
+        zoomFactor = $( ".zoomSlider" ).val();
+		drawChart();
+    });
+	
+	$( ".buttonMoveRight" ).bind( "touchstart mousedown", function(event, ui) {
+		minIndexToDisplay = Math.min(180, minIndexToDisplay + 5);
+		console.log(minIndexToDisplay);
+		drawChart();
+    });
+	
+	$( ".buttonMoveLeft" ).bind( "touchstart mousedown", function(event, ui) {
+		minIndexToDisplay = Math.max(0, minIndexToDisplay - 5);
+		console.log(minIndexToDisplay);
+		drawChart();
     });
 });
