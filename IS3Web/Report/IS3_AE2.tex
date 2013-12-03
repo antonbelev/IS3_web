@@ -14,90 +14,47 @@ Group report for Assessed Exercise Part 2}
 
 \begin{document}
 \maketitle
+\newpage
+
+
 
 \section{Introduction}
-
-This report is summarise what approaches were taken and what results were achieved on the course of developing a prototype for a data visualisation tool as part of an assessed exercise for Interactive Systems 3.
-
-In the second section we discuss waaahat manipulation techniques were applied on the two datasets we were provided. In section three our thoughts and results on the analysis are presented. Further below, in section 4 we expose what some of our early designs look like and how we eventually settled on the final version of our prototype. Section five is concerned with what techniques were used in evaluating each of our prototype to extract what the advantages and disadvantage each one has. Finally, section six contains a brief overview of what the vision of the product is, and what the main features of the final product should be.
-
-
-\section{Data}
-
-Our approach on the data was to collectively decide what data would not be of use and what data we need to keep. Then we decided to clean it up and get rid of attributes for which there were too few entries. Then we merged the Olympics medals data with the World Health Organisation data to get one big file.
-We used Google spreadsheets to manipulate it because they allow concurrent manipulation by multiple users and everybody on the team could contribute.
-
-\subsection{Deleting columns}
-
-In the file containing data from WHO, we noticed that there were quite a few attributes that were missing information for most countries. Since manipulating such a large dataset is not feasible, we decided to keep only the attributes that have a good representative sample of the countries (about $70\%$ of the entries exist).
-
-\subsection{Merge}
-
-After cleaning up the WHO data, we decided that manipulating two different spreadsheets is not really efficient, so we merged the Olympic medals data into the bigger file. There were countries in one file that were missing from the other and vice versa. These countries were small and would not impact any further analysis in a significant way. Thus, we decided to discard information for those countries.
-
-\subsection{Data consistency}
-
-We noticed that for some attributes there was an inconsistency of units (e.g. population measured in number of people and then measured in thousands of people). This would lead to an incorrect analysis, therefore we tried to inspect what data made sense and looked up other sources where in doubt and fixed a number of attributes this way.
-
-\section{Exploratory analysis}
-In this section we will answer question proposed on stage 2 at documents. We will discuss each question separately.
-
-
-\subsection{What charts and interactions might provide insight?}
-
-First we will describe the charts: a line chart, scatter plot, bar chart. Now we will describe the interactions: drag and drop individual columns, the user may disable the representation of a single column in order to explore the others in better way.
-
-\subsection{What are you going to roll up?}
-
-In the course of prototyping we arrived to the conclusion that there are certain features that would be both useful and frequently used, such as easy-to-work attributes selection, easy switching between charts etc. The features that we decided to make available to the user just one click away, are the ones we thought would be most frequently used. We got some insight in that by evaluating different prototypes and by trying to analyze the data itself different plotting techniques.
-
-\subsection{What are you going to drill down into?}
-
-When the mouse hovers on a point at a graph, a mouse tool tip will display the value of the x and y. When the mouse hovers on an attribute, a mouse tool tip will be displayed. This will include information about the unit of the attribute, the number of records currently in display, the mean of the records and more.
-
-\subsection{What aggregates and similar statistical combinations are you going to make, i.e. new measures?}
-
-In order to analyze the data we quite often needed to have values per capita, or aggregated values, or ratios between values. Some of the most frequently used newly created measures are: 
-
-\subsection{Significant trends in the data}
-
-In the process of analysis we mainly looked at correlations between team size and other attributes; between total medals won and others. The only strong trend that we observed was between team size and total medals won shown on figure \ref{size_vs_medals}.
-
-\section{Prototypes}
-
-After thoroughly discussing how we should proceed with prototyping, we decided that each team member would go and design a high level prototype and then combine the good features into our final prototype.
-
-\subsection{Early prototyping}
-
-In the diagrams below a few of our early prototypes are presented:
-
-
-\subsection{Final prototype design}
-
-Combining the good features of the developed prototypes, we designed the final prototype shown in figure \ref{final_prototype}.
+This is a one page introduction to the system developed for the Interactive Systems Assessed Exercise. 
+\subsection{Idea}
+The application's main idea is to visualize significant features in the data set and provide the user with the ability to explore relations in the data set.
+\subsection{Technologies used} The main technologies used were JQuery and Google Charts.
+\subsection{How to run it} Extract the zip archive in a folder and the...
 
 
 
-\section{Prototypes evaluation}
+\section{Software Design Requirements}
+We will discuss each requirement in the following way: first we will describe the motivation behind the requirement (which is extended from the report of the first part of the assessed exercise and then we will describe the requirement in a software engineering way.\\
+The first part of this section will describe requirements described in sections 4 and 5 of the report of the first part of the assessed exercise. The second part will describe requirements that were thought of during the implementation of the system. The third part will discuss possible requirements for further development of the system.
+\begin{itemize}
+\subsection{Initial requirements}
+\item{\textbf{Chart switching panel}\\Motivation: relations between different attributes are best represented with different charts. The user must be able to quickly switch between different charts and to preserve its attribute selection.\\The user should be able to switch between the following types of charts: Line Chart, Bar Chart, Scatter Chart and Geo Map. If the user has selected a specific set of attributes to visualize, switching between charts should preserve this user choice (i.e. if a user is comparing Gold and Silver medals for countries in Africa in a Line chart, when he switches to Bar chart, only gold and silver medals will be plotted on the Bar chart).}
+\item{\textbf{Attribute selection panel}\\Motivation: the user must be able to explore different sets of attributes\\The user should be able to add attributes to be plotted, to remove attributes of those that are plotted, to deselect all and to select all attributes. If no attribute is selected, then a message should be displayed that prompt the user to select an attribute. There should be a column filer.}
+\item{\textbf{Country selection panel}\\Motivation: the user must be able to explore different sets of counties\\The user should be able to add countries to be plotted, to remove countries of those that are plotted, to deselect all and to select all countries. If no countries is selected, then a message should be displayed that prompt the user to select an attribute. There should be a country filter.}
+\item{\textbf{Multiple Line chart}\\Motivation: The user want to explore all the countries. A significant advantage of a line chart is that it visualizes well a large number of data points ( 180 countries in our case). The user might want to view more than one attribute of a country and that is why we chose to make a multiple line chart. The countries are plotted on the x-axis.\\The user must be able to view attributes plotted as a bar chart}
+\item{\textbf{Bar chart}\\The user want to explore a small set of countries. A significant advantage of a bar chart is that it visualizes well a small number of data points. The user might want to view more than one attribute of a country and that is why we chose to make a multiple bar chart. The countries are plotted on the x-axis.\\The user must be able to view attributes plotted as a bar chart}
+\item{\textbf{Scatter chart}\\Motivation: Scatter charts are good when exploring for a correlation of attributes that are comparable (we do not want to plot the countries on the x-axis, i.e. we want to plot gold medals on the x-axis and silver medals on the y-axis.\\The user must be able to view attributes plotted as a scatter chart}
 
-In this section we will discuss the evaluation of the starting three prototypes. We undertook the techniques of Heuristic evaluation and Think aloud, in order to outline the drawbacks and the advantages of each prototype. It is important to mention that the aims of these prototypes were to examine the functionalities that we can provide to the user. Hence during the evaluation we were focused on what is more appropriate for data representation and design, rather than user error handling. That is why we have evaluated the three prototypes against the following heuristics:
+\subsection{On the go requirements}
+\item{\textbf{Geo Map}\\Motivation: Geo Maps are good when considering geographical factors\\Include a Geo Map chart option available in the chart selection panel.}
+\item{\textbf{Data Normalization}\\Motivation: Normalization is useful when comparing attributes whose units different by great magnitude.\\The user should be able to normalize the data.}
+\item{\textbf{Chart zoom}\\Motivation: The user might want to zoom a particular sector of the chart in order to see the attributes better.\\The user might be able to zoom a chart.}
 
-In following three subsections will examine the results that we obtained.
+\subsection{Further development requirements}
+\item{\textbf{File upload}\\Motivation: explore different data sets\\The user should be able to upload different data sets.}
 
-\subsection{Prototype 1}
+\end{itemize}
 
-The user is provided with a number of statistics and can easily see the current statistics that are visualized on the graphic. Also the user can switch between different chart types using the bottom radio button group. Even though the user is provide with a search menu for countries, is not clear how you add or how you remove countries from the chart. There is no list of currently selected countries by user. When the user types new country it may actually delete already added one if the user does not remember, which countries were added to the graphic. Finally this prototype is using well known control tools such as search menu and radio button groups. There is potential problem with this approach, because if you have many statistics items the radio buttons group could get enormous and unsearchable.
 
-\subsection{Prototype 2}
 
-In this prototype the controls are nicely separated and the user can focus on each separate control panel without been distracted by something else. It is clear that the user can plot different columns against each other, however is not clear whether the values from box A are plotted on the x-axis or on the y-axis. If the user plots wrong column by mistake he/she can easily recover by selecting new one. Another good feature is that there is a help menu. Again the system provides options to the user to choose between different chart types. Possible drawback is the fact that the user should scroll up and down in the value boxes to find options, which may be problematic. Finally this prototype is providing well organized panels and the user’ attention is focused on the graphic placed in the middle. Well known control tools, like a list of items inside a scrollable box, have been used. 
+\section{Implementation}
 
-\subsection{Prototype 3}
 
-In this prototype the user is available to add and remove columns using a search box. If the user has added a wrong column by mistake, he can easily remove it by selecting the column from the list below and clicking on the remove button. Potential drawback of this prototype is that if the user adds many columns the list may grow large and then any interaction with the list would be difficult. Again the user is provided with different chart types to select between. The graphic panel is occupying the center of the screen and is drawing the attention of the user. The prototype is using typical user control tools such as items list, search box, menu bar. Other limitations of the current prototype is that the user is not supplied with a list of countries and is not clear where is each column plotted on the axes.
 
-\section{Video demonstration}
-
-Our short video demonstration can be viewed \href{https://www.youtube.com/watch?v=yoNrqcQQBcY}{here}\footnote{This is an unlisted video on YouTube, meaning that it is only available to people who have the following link: https://www.youtube.com/watch?v=yoNrqcQQBcY}. It describes a typical use case of our application.
-
+\section{Analytic Findings}
+Here we will write some correlations and other results we obtained when analyzing the data.
 \end{document}
