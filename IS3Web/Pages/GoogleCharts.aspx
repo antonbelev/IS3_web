@@ -18,45 +18,62 @@
         <div id="chart_div" class="divInnderChar">
         </div>
         <div id="chart_div_err" class="divInnderError">
-           <span class="error center">No content to display. Please, use the filters to the right.</span>
+            <span class="error center">No content to display. Please, use the filters to the right.</span>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="divSlider">
+            <div data-role="rangeslider">
+                <label for="range-10a">
+                    Rangeslider:</label>
+                <input name="range-10a" id="range-10a" min="0" max="10" step=".1" value="0" type="range" />
+                <label for="range-10b">
+                    Rangeslider:</label>
+                <input name="range-10b" id="range-10b" min="0" max="10" step=".1" value="10" type="range" />
+            </div>
         </div>
     </div>
     <div id="divMenu" class="divMenu">
-		<table style="width:100%;"> 
-			<tr>
-				<td>Normalized:</td>
-				<td style="text-align:center;">Chart type:</td>
-			</tr>
-			<tr>
-				<td>
-					<div class="clear">
-						<select name="normSlider" id="normSlider" data-role="slider" class="normSlider" data-mini="true">
-							<option value="off">Off</option>
-							<option value="on">On</option>
-						</select>
-					</div>
-				</td>
-				<td style="float:right;">
-					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup" data-type="horizontal" class="center chartTypes" data-mini="true">
-							<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-							<label for="radio-choice-1">
-								Line Chart</label>
-							<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
-							<label for="radio-choice-2">
-								Bar Chart</label>
-							<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" />
-							<label for="radio-choice-3">
-								Scatter Plot</label>
-							<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
-							<label for="radio-choice-4">
-								Geo Plot</label>
-						</fieldset>
-					</div>
-				</td>
-			</tr>
-		</table>
-		<div class="clear">
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    Normalized:
+                </td>
+                <td style="text-align: center;">
+                    Chart type:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="clear">
+                        <select name="normSlider" id="normSlider" data-role="slider" class="normSlider" data-mini="true">
+                            <option value="off">Off</option>
+                            <option value="on">On</option>
+                        </select>
+                    </div>
+                </td>
+                <td style="float: right;">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup" data-type="horizontal" class="center chartTypes"
+                            data-mini="true">
+                            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">
+                                Line Chart</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">
+                                Bar Chart</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" />
+                            <label for="radio-choice-3">
+                                Scatter Plot</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
+                            <label for="radio-choice-4">
+                                Geo Plot</label>
+                        </fieldset>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="clear">
         </div>
         <div data-role="collapsible" class="menuCollapse clpsColumns" data-theme="b">
             <h3>
@@ -67,7 +84,8 @@
             </div>
             <hr />
             <input type="checkbox" name="selectAllColumns" id="selectAllColumns" class="selectAllColumns" />
-		    <label for="selectAllColumns">Select all</label>
+            <label for="selectAllColumns">
+                Select all</label>
         </div>
         <div class="clear">
         </div>
@@ -78,10 +96,13 @@
                 <ul data-role="listview" data-filter="true" class="ulCountries" data-mini="true">
                 </ul>
             </div>
-            <div class="clear"></div>
+            <div class="clear">
+            </div>
             <hr />
-            <input type="checkbox" name="selectAllCountry" id="selectAllCountry" checked="checked" class="selectAllCountry" />
-		    <label for="selectAllCountry">Select all</label>
+            <input type="checkbox" name="selectAllCountry" id="selectAllCountry" checked="checked"
+                class="selectAllCountry" />
+            <label for="selectAllCountry">
+                Select all</label>
         </div>
         <div class="clear">
         </div>
