@@ -40,6 +40,6 @@
 
 function insertCustomAttribute(expr, attributeName) {
 	for (var i = 0; i < json.length; i++) {
-		json[attributeName] = parseFloat(parser(expr, i));
+		json[i][attributeName] = parser(expr, i);
 	}
 }

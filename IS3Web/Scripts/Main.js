@@ -22,7 +22,6 @@ $(document).on("pageinit", function (event) {
             drawChart();
         }
         else if ($(this).hasClass("chckColumn")) {
-			isAdvanced = false;
             if ($(this).attr('checked')) {
                 selectedColumns.push($(this).attr("name"));
             } else {
@@ -137,12 +136,11 @@ $(document).on("pageinit", function (event) {
 		drawChart();
     });
 
-	$( ".AdvancedCalculator" ).bind( "touchstart mousedown", function(event, ui) {
-		
-    });
-
 	$( ".advancedButton" ).bind( "touchstart mousedown", function(event, ui) {
-		// TODO(implement that once the function is pulled)
-		alert("Advanced :D");
+		var attributeName = prompt("Enter the name of the new attribute, please");
+		var expr = prompt("Enter expression in Reverse Polish Notation");
+		insertCustomAttribute(expr, attributeName);
+		$('.ulColumns').empty();
+		generateColumns();
     });
 });
