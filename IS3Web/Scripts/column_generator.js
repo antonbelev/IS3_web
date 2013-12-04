@@ -4,7 +4,7 @@
     var jqmBottom1 = " data-corners=\"true\" data-shadow=\"false\" data-iconshadow=\"true\" data-wrapperels=\"span\" data-icon=\"checkbox-off\" data-theme=\"c\" data-mini=\"true\"><span class=\"ui-btn-inner ui-btn-corner-all\"><span class=\"ui-btn-text\">"
     var jqmBottom2 = "</span><span class=\"ui-icon ui-icon-checkbox-off ui-icon-shadow\"> </span></span></label></div></td><td width='30%'>";
     var uiSelector = $('.ulColumns');
-    var invSlider1 = "<div class=\"invSlider\"><select name=\""; //style=\"float: right; \"
+    var invSlider1 = "<div><select name=\""; //style=\"float: right; \"
     var invSlider2 = "\" id=\"";
     var invSlider3 = "\" data-role=\"slider\" class=\"invSlider ui-slider-switch\" data-mini=\"true\"><option value=\"same\">Same</option>";
     var invSlider4 = "<option value=\"inv\">Inv</option></select></div>"; //close div

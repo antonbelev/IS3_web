@@ -1,6 +1,5 @@
 ﻿
 $(document).on("pageinit", function (event) {
-    //alert("This page was just enhanced by jQuery Mobile!");
     $(".selectAllCountry").attr('checked', true).checkboxradio().checkboxradio('refresh');
 
     generateCoutries();
@@ -107,8 +106,23 @@ $(document).on("pageinit", function (event) {
     });
 	
 	$( ".zoomSlider" ).bind( "change", function(event, ui) {
-		//alert($( ".zoomSlider" ).val());
         zoomFactor = $( ".zoomSlider" ).val();
+		drawChart();
+    });
+
+	$( ".invSlider" ).bind( "change", function(event, ui) {
+		var attribute = $(this).attr("name");
+		if (invertedAttributes.indexOf(attribute) < 0) {
+			invertedAttributes.push(attribute);
+		} else {
+			var newList = [];
+			for (var i = 0; i < invertedAttributes.length; i++) {
+				if (invertedAttributes[i] != attribute) {
+					newList.push(invertedAttributes[i]);
+				}
+			}
+			invertedAttributes = newList;
+		}
 		drawChart();
     });
 	
