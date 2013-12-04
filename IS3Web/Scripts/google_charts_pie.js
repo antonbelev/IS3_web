@@ -96,7 +96,10 @@
 				chart = new google.visualization.GeoMap(document.getElementById('chart_div'));
 				break;
 		}
-
+	//test
+	console.log("this is the result : " + parser("Gold Silver * Bronze +",8)); 
+	
+	//end of test
 		chart.draw(data, options);
       }
 	  
@@ -126,10 +129,3 @@
 		}
 		return result;
 	  }
-	  
-	  
-	  
-	  
-	  
-	  
-	  

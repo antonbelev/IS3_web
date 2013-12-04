@@ -135,4 +135,9 @@ $(document).on("pageinit", function (event) {
 		minIndexToDisplay = Math.max(0, minIndexToDisplay - 5);
 		drawChart();
     });
+	$( ".AdvancedCalculator" ).bind( "touchstart mousedown", function(event, ui) {
+	
+		drawChartAdvancedCalculator(prompt("Enter your query here: "));
+			
+    });
 });
