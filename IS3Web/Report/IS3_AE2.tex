@@ -3,6 +3,8 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{caption}
 \usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{listings}
 
 
 \title{Interactive Systems 3\\ \vspace{4mm} 
@@ -28,31 +30,143 @@ The application's main idea is to visualize significant features in the data set
 
 
 \section{Software Design Requirements}
-We will discuss each requirement in the following way: first we will describe the motivation behind the requirement (which is extended from the report of the first part of the assessed exercise and then we will describe the requirement in a software engineering way.\\
-The first part of this section will describe requirements described in sections 4 and 5 of the report of the first part of the assessed exercise. The second part will describe requirements that were thought of during the implementation of the system. The third part will discuss possible requirements for further development of the system.
-\begin{itemize}
-\subsection{Initial requirements}
-\item{\textbf{Chart switching panel}\\Motivation: relations between different attributes are best represented with different charts. The user must be able to quickly switch between different charts and to preserve its attribute selection.\\The user should be able to switch between the following types of charts: Line Chart, Bar Chart, Scatter Chart and Geo Map. If the user has selected a specific set of attributes to visualize, switching between charts should preserve this user choice (i.e. if a user is comparing Gold and Silver medals for countries in Africa in a Line chart, when he switches to Bar chart, only gold and silver medals will be plotted on the Bar chart).}
-\item{\textbf{Attribute selection panel}\\Motivation: the user must be able to explore different sets of attributes\\The user should be able to add attributes to be plotted, to remove attributes of those that are plotted, to deselect all and to select all attributes. If no attribute is selected, then a message should be displayed that prompt the user to select an attribute. There should be a column filer.}
-\item{\textbf{Country selection panel}\\Motivation: the user must be able to explore different sets of counties\\The user should be able to add countries to be plotted, to remove countries of those that are plotted, to deselect all and to select all countries. If no countries is selected, then a message should be displayed that prompt the user to select an attribute. There should be a country filter.}
-\item{\textbf{Multiple Line chart}\\Motivation: The user want to explore all the countries. A significant advantage of a line chart is that it visualizes well a large number of data points ( 180 countries in our case). The user might want to view more than one attribute of a country and that is why we chose to make a multiple line chart. The countries are plotted on the x-axis.\\The user must be able to view attributes plotted as a bar chart}
-\item{\textbf{Bar chart}\\The user want to explore a small set of countries. A significant advantage of a bar chart is that it visualizes well a small number of data points. The user might want to view more than one attribute of a country and that is why we chose to make a multiple bar chart. The countries are plotted on the x-axis.\\The user must be able to view attributes plotted as a bar chart}
-\item{\textbf{Scatter chart}\\Motivation: Scatter charts are good when exploring for a correlation of attributes that are comparable (we do not want to plot the countries on the x-axis, i.e. we want to plot gold medals on the x-axis and silver medals on the y-axis.\\The user must be able to view attributes plotted as a scatter chart}
+In the following chapter the software design requirments of the application will be discussed in detail. The section is divided into 3 sections. Section 2.1 covers requirements described in the report of the first part of the assessed exercise (paper prototype).Section 2.2 describes requirments that were thought off during the implementation process as improvements. Section 2.3 is concerned with the requirements that the team wished, but did not have the time resources to implement. The requirements described in the subsection 2.3 are a possible path for further development of the application. Each requirement is presented in the following way: first the motivation behind the requirement is described and after that the requirement is set in software engineering way.\\
 
-\subsection{On the go requirements}
-\item{\textbf{Geo Map}\\Motivation: Geo Maps are good when considering geographical factors\\Include a Geo Map chart option available in the chart selection panel.}
-\item{\textbf{Data Normalization}\\Motivation: Normalization is useful when comparing attributes whose units different by great magnitude.\\The user should be able to normalize the data.}
-\item{\textbf{Chart zoom}\\Motivation: The user might want to zoom a particular sector of the chart in order to see the attributes better.\\The user might be able to zoom a chart.}
-\item{\textbf{Inverse of an attribute}\\ Motivation: help the user find negative correlations.\\Every attribute should have an inverse button for all of the charts.}
-\item{\textbf{Attribute Builder}\\Motivation: help the user explore complex relations between attributes.\\The user should be able to build complex mathematical combinations of existing attributes.}
+\begin{itemize}
+
+\subsection{Initial requirements}
+
+
+\item[\checkmark]{\textbf{Chart switching panel}
+\\\textit{Motivation:} There is no standart way to visualize a relation between a number of attributes. Different relations of attributes are best represented plotted on different graphs. Furthermore, it is sometimes convinient to verify results using a different method ( in this case chart). In order to be more helpful to the user, the configuration of selected attributes must be preserved when switching between different charts given that is sensible.
+\\\textit{Requirement:} The user should be able to switch between the following types of charts: Line Chart, Bar Chart, Scatter Chart and Geo Map. If the user has selected a specific configuration of attributes to visualize, switching between charts should preserve this configuration.
+}
+
+
+\item[\checkmark]{\textbf{Attribute selection panel}
+\\\textit{Motivation:} Where appropriate, the user might want to plot one or more values on the y-axis. An expandble selection panel with search filter will help the user add and remove quickly attributes to get a particular configuration. A select-all-attributes and deselect-all-attributes options should also be included for better user experience.
+\\\textit{Requirement:} The user should be able to add attributes to be plotted, to remove attributes of those that are plotted, to deselect all and to select all attributes. The user should also be able to use a search filter. If no attribute is selected, then a message should be displayed that prompt the user to select an attribute.
+}
+
+
+\item[\checkmark]{\textbf{Country selection panel}
+\\\textit{Motivation:} The user might want to remove data for particular countries because of varous reasons. A country selection panel with select and deselect country menu and a search filter will help the user to quickly obtain the desired set of countries he is interested in. A select-all-countries and deselect-all-countries options should also be included for better user experience.
+\\\textit{Requirement:}The user should be able to add countries to be plotted, to remove countries of those that are plotted, to deselect all and to select all countries. If no countries is selected, then a message should be displayed that prompt the user to select a country. The user should also be able to use a search filter.
+}
+
+\item[\checkmark]{\textbf{Multiple Line chart}
+\\\textit{Motivation:} The user might want to explore an attribute or several attributes for all the countries. A significant advantage of a line chart is that it visualizes well a large number of data points (180 countries in our case). The user might want to view more than one attribute of a country and that is why we chose to make a multiple line chart. The countries are plotted on the x-axmulti is.
+\\\textit{Requirement:}The user must be able to add and remove attributes from a multiple line chart
+}
+
+\item[\checkmark]{\textbf{Bar chart}
+\\\textit{Motivation:}The user want to explore a small set of countries. A significant advantage of a bar chart is that it visualizes well a small number of data points. The user might want to view more than one attribute of a country so that a multiple valued bar chart is required. The countries are plotted on the x-axis.
+\\\textit{Requirement:}The user must be able to add and remove attributes from  a multiple valued bar chart.
+}
+
+\item[\checkmark]{\textbf{Scatter chart}
+\\\textit{Motivation:} Scatter charts are good when exploring for a correlation of attributes that are comparable (the user might not want to plot the countries on the x-axis, but for example to plot gold medals on the x-axis and silver and bronze medals on the y-axis).
+\\\textit{Requirement:} The user must be able to add and remove attributes from a scatter chart.
+}
+
+\subsection{Requirements added during implementation}
+
+\item[\checkmark]{\textbf{Geo Map}
+\\\textit{Motivation:} The user might want to explore a specific country attribute geografically. Geo Maps are good when considering geographical factors.
+\\\textit{Requirement:}Include a Geo Map chart option available in the chart selection panel. The user should be able to select and attribute and a world map should be displayed, visualizing the data in an appropriate way.
+}
+
+\item[\checkmark]{\textbf{Data Normalization}
+\\\textit{Motivation:} Normalization is useful when comparing attributes whose units different by great magnitude and correlation are hard to spot. Using normalization the user will be able to view the values of a given attributes as a percentage of the maximum value from the data of that attribute.
+\\\textit{Requirement:}The user should be able to normalize the data using a normalize option. The user should be able to denormalize the data using a denormalize option. The data should be normalized in such a way that the maximum value of a given attribute is equal to 100% and all other attributes are rescaled as a percentage of the maximum value.
+}
+
+\item[\checkmark]{\textbf{Chart zoom}
+\\\textit{Motivation:} The user might want to zoom on a particular sector of the chart in order to see the attributes better.
+\\\textit{Requirement:} The user should be able to zoom a chart.
+}
+
+\item[\checkmark]{\textbf{Inverse of an attribute}
+\\\textit{Motivation:} Using inverse of a of an attribute can make the exploration of negatively correlated attributes more easy, since if two attributes are negatively correlated, then the inverse of the one and the other attribute are positively correlated.
+\\\textit{Requirement:}Every attribute should have an inverse option for all the charts supported.
+}
+
+\item[\checkmark]{\textbf{Attribute Builder}
+\\\textit{Motivation:} The user might want to apply mathematical operations over a set of attributes and obtain new attributes in this way. For example the user might want to find GDP per capita or the sum of all medals won by a country. An attribute builder will provide the user with the ability to create new attributes using relationships from existing attributes.
+\\\textit{Requirement:} The user should be able to create new attributes using mathematical operations over existing attributes and then operate with the newly generate attributes as usual.
+}
+
 
 \subsection{Further development requirements}
-\item{\textbf{File upload}\\Motivation: explore different data sets\\The user should be able to upload different data sets.}
-\item{\textbf{Save configuration}\\Motivation: dont forget\\Implement}
+
+\item[\checkmark]{\textbf{File upload}
+\\\textit{Motivation:} The user might want to explore different data sets, so a file upload should be considered.
+\\\textit{Requirement:} The user should be able to upload different data sets as csv files.
+}
+
+\item[\checkmark]{\textbf{Save/Export Configuration}
+\\\textit{Motivation:} The user might want to save the current state of the visulization or to export it. This will make the process of applying the same visualization to another data set faster and more user friendly.
+\\\textit{Requirement:}The user should be able to save the current configuration and export it.
+}
+
 \end{itemize}
 
+
+
 \section{Implementation}
-We used the JQuery and Google Charts.
+For the implementation of the project we have used HTML, CSS, JQuery, JQuery Mobile and Google Charts. Each component’s implementation will be discussed in the following subsections.
+
+\subsection{Overall design}
+The current state of the project is just a standard static web application. We have created HTML page, which I holding the whole project content and as a back-end we have used pure JQuery and JavaScript. The project architecture is following the standard ASP.NET web application structure. We have divided the project in a few folders:
+\begin{itemize}
+\item{Pages - containing the HTML files;}
+\item{Scripts - containing our JavaScript files as long as the JQuery files;}
+\item{Styles - containing the CSS files.}
+\end{itemize}
+
+At the moment we have used a Python script to transform the WHO and the Olympics data to JSON format. Then the JSON is stored as a variable that we can query on. This can be improved in the future easily and we can allow the user to submit CSV or JSON files directly to the application. 
+
+\subsection{Chart switching panel}
+
+For the chart switching panel we have used JQuery Mobile horizontal radio button group. The radio button group is user and mobile friendly. Using these buttons the user can switch between the given set of chart types and obtain different information. 
+
+\lstset{
+language=HTML,
+basicstyle=\small\sffamily,
+numbers=left,
+numberstyle=\tiny,
+frame=tb,
+columns=fullflexible,
+showstringspaces=false
+}
+\begin{lstlisting}[caption=Radio button group example code.,
+  label=a_label,
+  float=t]
+<div data-role="fieldcontain">
+	<fieldset data-role="controlgroup" data-type="horizontal" class="center 		chartTypes" data-mini="true">
+	<input type="radio" name="radio-choice-1" id="radio-choice-1"   				value="choice-1" checked="checked" />
+	<label for="radio-choice-1">
+		Line Chart</label>
+	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
+	<label for="radio-choice-2">
+		Bar Chart</label>
+	<input type="radio" name="radio-choice-1" id="radio-choice-3" 		value="choice-3" />
+	<label for="radio-choice-3">
+		Scatter Plot</label>
+	<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
+	<label for="radio-choice-4">
+		Geo Plot</label>
+</fieldset>
+</div>
+\end{lstlisting}
+
+\subsection{Attribute selection panel}
+\subsection{Country selection panel}
+\subsection{Google Charts}
+\subsection{Chart zoom}
+\subsection{Data normalization}
+\subsection{Inverse of an attribute}
+\subsection{Attribute builder} To be more user friendly the implementation can be done with the implementation of a standard calculator not as we did - using reverse polish notation.
 
 
 \section{Analytic Findings}
