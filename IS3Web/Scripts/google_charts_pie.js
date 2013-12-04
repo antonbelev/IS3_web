@@ -12,7 +12,7 @@
 	  };
 	  var chartChoice = chartEnum.LINE;
 	  var unselectedCountries = [];
-	  var invertedAttributes = ['Gold', 'Silver'];
+	  var invertedAttributes = [];
       var selectedColumns = [];
 	  var isNormalized = false;
 	  var zoomFactor = 180;
