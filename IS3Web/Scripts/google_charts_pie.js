@@ -15,7 +15,8 @@
 	  var invertedAttributes = [];
       var selectedColumns = [];
 	  var isNormalized = false;
-	  var zoomFactor = 180;
+	  var zoomFactor = 0;
+	  var countCountries = 0;
 	  var minIndexToDisplay = 0;
       // instantiates the pie chart, passes in the data and
       // draws it.
@@ -40,10 +41,10 @@
 		}
 		
 		var extremeValues = getMinMaxForAttributes(selectedColumns);
-		console.log(invertedAttributes + " : "+selectedColumns);
-		//data.addColumn('number', '#Silver');
+		countCountries = 0;
 		for (var i = 0; i < json.length; i++) {
 			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0){
+				countCountries++;
                 var content = [];
 				if(chartChoice != chartEnum.SCATTER) {
                     content.push(json[i]["Country"]);
@@ -53,7 +54,6 @@
 					var min = extremeValues[j][0];
 					var max = extremeValues[j][1];
 					var currValue = parseFloat(json[i][selectedColumns[j]]);
-					console.log(min + " : "+max );
 					if(invertedAttributes.indexOf(selectedColumns[j]) >= 0) {
 						if(currValue > 0){
 							currValue = 1.0/currValue;
@@ -76,7 +76,7 @@
         var options = {'title':'How Much Pizza I Ate Last Night',
             'height': 500,//$( document ).innerHeight() - 50,
             'width': '100%',
-            hAxis: {textPosition:'none', viewWindow: {min:minIndexToDisplay, max:(parseInt(zoomFactor) + parseInt(minIndexToDisplay))}},
+            hAxis: {textPosition:'none', viewWindow: {min:minIndexToDisplay, max:(Math.min(countCountries, minIndexToDisplay + countCountries - countCountries * zoomFactor / 100.0))}},
             animation: {duration: 1000, easing: 'inAndOut'},
         };
 

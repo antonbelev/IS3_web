@@ -83,7 +83,6 @@ $(document).on("pageinit", function (event) {
                 chartChoice = chartEnum.SCATTER;
                 break;
             case ('choice-4'):
-                console.log("i am in geo");
                 chartChoice = chartEnum.GEO;
                 break;
         }
@@ -124,14 +123,12 @@ $(document).on("pageinit", function (event) {
     });
 	
 	$( ".buttonMoveRight" ).bind( "touchstart mousedown", function(event, ui) {
-		minIndexToDisplay = Math.min(180, minIndexToDisplay + 5);
-		console.log(minIndexToDisplay);
+		minIndexToDisplay = Math.min(countCountries * zoomFactor / 100.0, minIndexToDisplay + 5);
 		drawChart();
     });
 	
 	$( ".buttonMoveLeft" ).bind( "touchstart mousedown", function(event, ui) {
 		minIndexToDisplay = Math.max(0, minIndexToDisplay - 5);
-		console.log(minIndexToDisplay);
 		drawChart();
     });
 });
