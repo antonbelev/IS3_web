@@ -87,7 +87,7 @@ $(document).on("pageinit", function (event) {
                 break;
             case ('choice-4'):
                 chartChoice = chartEnum.GEO;
-				$(".divZoom").show();
+				$(".divZoom").hide();
                 break;
         }
         drawChart();
