@@ -12,6 +12,7 @@
 	  };
 	  var chartChoice = chartEnum.LINE;
 	  var unselectedCountries = [];
+	  var invertedAttributes = ['Gold', 'Silver'];
       var selectedColumns = [];
 	  var isNormalized = false;
 	  var zoomFactor = 180;
@@ -33,11 +34,13 @@
         if(chartChoice != chartEnum.SCATTER) {
             data.addColumn('string', 'Country');
         }
+
         for (var i = 0; i < selectedColumns.length; i++) {
             data.addColumn('number', selectedColumns[i]);
 		}
 		
 		var extremeValues = getMinMaxForAttributes(selectedColumns);
+		console.log(invertedAttributes + " : "+selectedColumns);
 		//data.addColumn('number', '#Silver');
 		for (var i = 0; i < json.length; i++) {
 			if (unselectedCountries.indexOf(json[i]["CountryID"]) < 0){
@@ -45,10 +48,20 @@
 				if(chartChoice != chartEnum.SCATTER) {
                     content.push(json[i]["Country"]);
                 }
+				
                 for (var j = 0; j < selectedColumns.length; j++) {
 					var min = extremeValues[j][0];
 					var max = extremeValues[j][1];
 					var currValue = parseFloat(json[i][selectedColumns[j]]);
+					console.log(min + " : "+max );
+					if(invertedAttributes.indexOf(selectedColumns[j]) >= 0) {
+						if(currValue > 0){
+							currValue = 1.0/currValue;
+						}
+						else{
+							currValue = max;
+						}
+					}
 					if (isNormalized)
 						content.push( (currValue - min) * 100.0 / (max - min));
 					else
@@ -60,7 +73,6 @@
 		}
 		
         // Set chart options
-		console.log(minIndexToDisplay + " : " + (zoomFactor + minIndexToDisplay));
         var options = {'title':'How Much Pizza I Ate Last Night',
             'height': 500,//$( document ).innerHeight() - 50,
             'width': '100%',
@@ -84,6 +96,7 @@
 				chart = new google.visualization.GeoMap(document.getElementById('chart_div'));
 				break;
 		}
+
 		chart.draw(data, options);
       }
 	  
@@ -96,10 +109,15 @@
 			for (var j = 0; j < json.length; j++) {
 				if (unselectedCountries.indexOf(json[j]["CountryID"]) < 0) {
 					var currNumber = parseFloat(json[j][attributes[i]]);
-					if (currNumber > max)
+					if(invertedAttributes.indexOf(attributes[i]) >= 0 && currNumber > 0){
+						currNumber = 1.0/currNumber;
+					}
+					if (currNumber > max){
 						max = currNumber;
-					if (currNumber < min)
+					}
+					if (currNumber < min){
 						min = currNumber;
+					}
 				}
 			}
 			currMinMax.push(min);
