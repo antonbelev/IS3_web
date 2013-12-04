@@ -22,7 +22,7 @@
         </div>
         <div class="clear">
         </div>
-        <div class="divSlider">
+        <%--<div class="divSlider">
             <div data-role="rangeslider">
                 <label for="range-10a">
                     Rangeslider:</label>
@@ -31,7 +31,7 @@
                     Rangeslider:</label>
                 <input name="range-10b" id="range-10b" min="0" max="10" step=".1" value="10" type="range" />
             </div>
-        </div>
+        </div>--%>
 		
 		<div id="divZoom" class="divZoom" style="float:bottom; height:3%; width:100%">
 		<table> <tr>
