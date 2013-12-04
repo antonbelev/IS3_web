@@ -53,8 +53,9 @@
                 for (var j = 0; j < selectedColumns.length; j++) {
 					var min = extremeValues[j][0];
 					var max = extremeValues[j][1];
+					
 					var currValue = parseFloat(json[i][selectedColumns[j]]);
-					if(invertedAttributes.indexOf(selectedColumns[j]) >= 0) {
+					if(invertedAttributes.indexOf(selectedColumns[j]) >= 0 && json[i][selectedColumns[j]] != "") {
 						if(currValue > 0){
 							currValue = 1.0/currValue;
 						}
@@ -73,10 +74,10 @@
 		}
 		
         // Set chart options
-        var options = {'title':'How Much Pizza I Ate Last Night',
+        var options = {
             'height': 500,//$( document ).innerHeight() - 50,
             'width': '100%',
-            hAxis: {textPosition:'none', viewWindow: {min:minIndexToDisplay, max:(Math.min(countCountries, minIndexToDisplay + countCountries - countCountries * zoomFactor / 100.0))}},
+            hAxis: {viewWindow: {min:minIndexToDisplay, max:(Math.min(countCountries, minIndexToDisplay + countCountries - countCountries * zoomFactor / 100.0))}},
             animation: {duration: 1000, easing: 'inAndOut'},
         };
 
@@ -91,12 +92,15 @@
 				break;
 			case(chartEnum.SCATTER): 
 				chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+				options = {
+				    'height': 500,
+				    'width': '100%',
+					hAxis: {title: selectedColumns[0]} }; 
 				break;
 			case(chartEnum.GEO):
 				chart = new google.visualization.GeoMap(document.getElementById('chart_div'));
 				break;
 		}
-
 		chart.draw(data, options);
       }
 	  
