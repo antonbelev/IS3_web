@@ -5,7 +5,7 @@ $(document).on("pageinit", function (event) {
     generateCoutries();
     generateColumns();
     $("input[type='checkbox']").checkboxradio();
-    $("input[type='checkbox']").bind("change", function (event, ui) {
+    $("input[type='checkbox']").live("change", function (event, ui) {
         if ($(this).hasClass("chckCountry")) {
             if (!$(this).attr('checked')) {
                 unselectedCountries.push($(this).attr("name"));
@@ -110,7 +110,7 @@ $(document).on("pageinit", function (event) {
 		drawChart();
     });
 
-	$( ".invSlider" ).bind( "change", function(event, ui) {
+	$( ".invSlider" ).live( "change", function(event, ui) {
 		var attribute = $(this).attr("name");
 		if (invertedAttributes.indexOf(attribute) < 0) {
 			invertedAttributes.push(attribute);
