@@ -75,15 +75,19 @@ $(document).on("pageinit", function (event) {
         switch ($(this).attr('value')) {
             case ('choice-1'):
                 chartChoice = chartEnum.LINE;
+				$(".divZoom").show();
                 break;
             case ('choice-2'):
                 chartChoice = chartEnum.BAR;
+				$(".divZoom").show();
                 break;
             case ('choice-3'):
                 chartChoice = chartEnum.SCATTER;
+				$(".divZoom").hide();
                 break;
             case ('choice-4'):
                 chartChoice = chartEnum.GEO;
+				$(".divZoom").show();
                 break;
         }
         drawChart();
