@@ -22,6 +22,7 @@ $(document).on("pageinit", function (event) {
             drawChart();
         }
         else if ($(this).hasClass("chckColumn")) {
+			isAdvanced = false;
             if ($(this).attr('checked')) {
                 selectedColumns.push($(this).attr("name"));
             } else {
@@ -87,7 +88,7 @@ $(document).on("pageinit", function (event) {
                 break;
             case ('choice-4'):
                 chartChoice = chartEnum.GEO;
-				$(".divZoom").hide();
+				$(".divZoom").show();
                 break;
         }
         drawChart();
@@ -137,9 +138,7 @@ $(document).on("pageinit", function (event) {
     });
 
 	$( ".AdvancedCalculator" ).bind( "touchstart mousedown", function(event, ui) {
-	
-		drawChartAdvancedCalculator(prompt("Enter your query here: "));
-			
+		
     });
 
 	$( ".advancedButton" ).bind( "touchstart mousedown", function(event, ui) {
