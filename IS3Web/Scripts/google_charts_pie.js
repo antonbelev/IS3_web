@@ -94,7 +94,7 @@
 		        options = {
 		            'height': 500,
 		            'width': '100%',
-		            hAxis: {title:selectedColumns[0], viewWindow: {min:minIndexToDisplay, max:(Math.min(countCountries, minIndexToDisplay + countCountries - countCountries * zoomFactor / 100.0))}},
+		            hAxis: {title:selectedColumns[0]},
 		        };
 				break;
 			case(chartEnum.GEO):
